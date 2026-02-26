@@ -1,0 +1,206 @@
+// ==============================
+// TALLER ECOSISTEMAS MOVILES 2026
+// ==============================
+
+
+// ------------------------------
+// EJERCICIO 1 - Monetización
+// ------------------------------
+
+List<Map<String, dynamic>> platforms = [];
+
+void addPlatform(String name, double averageSpending) {
+  platforms.add({
+    'name': name,
+    'averageSpending': averageSpending
+  });
+}
+
+void evaluateProfitability() {
+  print('\n--- Evaluación de Rentabilidad ---');
+
+  platforms.forEach((platform) {
+    if (platform['averageSpending'] > 10) {
+      print('${platform['name']} → Alta Rentabilidad');
+    } else {
+      print('${platform['name']} → Rentabilidad Media/Baja');
+    }
+  });
+
+  var highProfit = platforms
+      .where((platform) => platform['averageSpending'] > 10);
+
+  print('Total Alta Rentabilidad: ${highProfit.length}');
+}
+
+
+
+// ------------------------------
+// EJERCICIO 2 - Fragmentación
+// ------------------------------
+
+List<Map<String, dynamic>> osVersions = [];
+double criticalThreshold = 50;
+
+void addOSVersion(String name, double adoption) {
+  osVersions.add({
+    'name': name,
+    'adoption': adoption
+  });
+}
+
+void evaluateAdoption() {
+  print('\n--- Evaluación de Adopción ---');
+
+  osVersions.forEach((version) {
+    if (version['adoption'] < criticalThreshold) {
+      print('${version['name']} → Necesita Retrocompatibilidad');
+    } else {
+      print('${version['name']} → Buena Cobertura');
+    }
+  });
+}
+
+
+
+// ------------------------------
+// EJERCICIO 3 - Perfiles Usuario
+// ------------------------------
+
+List<Map<String, dynamic>> userProfiles = [];
+
+Map<String, List<String>> platformAttributes = {
+  'Android': ['Customizacion', 'Sideloading', 'Flexibilidad'],
+  'iOS': ['Estabilidad', 'Optimización', 'Seguridad']
+};
+
+void addUserProfile(String name, String preference) {
+  userProfiles.add({
+    'name': name,
+    'preference': preference
+  });
+}
+
+void recommendPlatform() {
+  print('\n--- Recomendación por Perfil ---');
+
+  userProfiles.forEach((profile) {
+    print('\nUsuario: ${profile['name']}');
+
+    platformAttributes.forEach((platform, attributes) {
+      if (attributes.contains(profile['preference'])) {
+        print('Recomendado: $platform');
+      }
+    });
+  });
+}
+
+
+
+// ------------------------------
+// EJERCICIO 4 - Seguridad
+// ------------------------------
+
+List<Map<String, dynamic>> securityPlatforms = [];
+
+void addSecurityPlatform(String name, bool isClosed, bool thirdParty) {
+  securityPlatforms.add({
+    'name': name,
+    'isClosed': isClosed,
+    'thirdParty': thirdParty
+  });
+}
+
+void evaluateSecurity() {
+  print('\n--- Auditoría de Seguridad ---');
+
+  securityPlatforms.forEach((platform) {
+    if (platform['isClosed'] == true &&
+        platform['thirdParty'] == false) {
+      print('${platform['name']} → Aprobado para Empresa');
+    } else {
+      print('${platform['name']} → No recomendado para empresa');
+    }
+  });
+}
+
+
+
+// ------------------------------
+// EJERCICIO 5 - IA
+// ------------------------------
+
+List<String> requiredCapabilities = [];
+
+Map<String, List<String>> assistants = {
+  'Gemini': [
+    'Traduccion en vivo',
+    'Generacion de contenido',
+    'Resumen web'
+  ],
+  'Siri': [
+    'Traduccion en vivo',
+    'Resumen web'
+  ]
+};
+
+void addRequiredCapability(String capability) {
+  requiredCapabilities.add(capability);
+}
+
+void evaluateAssistants() {
+  print('\n--- Comparación de IA ---');
+
+  assistants.forEach((assistant, capabilities) {
+
+    bool fulfillsAll = true;
+
+    requiredCapabilities.forEach((required) {
+      if (!capabilities.contains(required)) {
+        fulfillsAll = false;
+      }
+    });
+
+    if (fulfillsAll) {
+      print('$assistant → Cumple todo');
+    } else {
+      print('$assistant → No cumple completamente');
+    }
+
+  });
+}
+
+
+
+// ==============================
+// MAIN
+// ==============================
+
+void main() {
+
+  // Ejercicio 1
+  addPlatform('iOS', 14.5);
+  addPlatform('Android', 7.2);
+  evaluateProfitability();
+
+  // Ejercicio 2
+  addOSVersion('Android 15', 42);
+  addOSVersion('iOS 18', 75);
+  evaluateAdoption();
+
+  // Ejercicio 3
+  addUserProfile('Usuario Hardcore', 'Customizacion');
+  addUserProfile('Usuario Ejecutivo', 'Estabilidad');
+  recommendPlatform();
+
+  // Ejercicio 4
+  addSecurityPlatform('iOS', true, false);
+  addSecurityPlatform('Android', false, true);
+  evaluateSecurity();
+
+  // Ejercicio 5
+  addRequiredCapability('Traduccion en vivo');
+  addRequiredCapability('Generacion de contenido');
+  addRequiredCapability('Resumen web');
+  evaluateAssistants();
+}
