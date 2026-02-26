@@ -4,7 +4,7 @@
 
 
 // ------------------------------
-// EJERCICIO 1 - Monetización
+// EJERCICIO 1 - Monetizacón
 // ------------------------------
 
 List<Map<String, dynamic>> platforms = [];
@@ -36,7 +36,7 @@ void evaluateProfitability() {
 
 
 // ------------------------------
-// EJERCICIO 2 - Fragmentación
+// EJERCICIO 2 - Fragentación
 // ------------------------------
 
 List<Map<String, dynamic>> osVersions = [];
@@ -65,7 +65,7 @@ void evaluateAdoption() {
 
 // ------------------------------
 // EJERCICIO 3 - Perfiles Usuario
-// ------------------------------
+// ------------------------------_-----------------
 
 List<Map<String, dynamic>> userProfiles = [];
 
@@ -97,7 +97,7 @@ void recommendPlatform() {
 
 
 
-// ------------------------------
+// ------------------------------.--------------
 // EJERCICIO 4 - Seguridad
 // ------------------------------
 
@@ -126,7 +126,7 @@ void evaluateSecurity() {
 
 
 
-// ------------------------------
+// -------------------------------------------________
 // EJERCICIO 5 - IA
 // ------------------------------
 
@@ -204,3 +204,4 @@ void main() {
   addRequiredCapability('Resumen web');
   evaluateAssistants();
 }
+
